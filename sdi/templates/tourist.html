@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>SDI System | Log In</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="CAMELLonCASE" name="author" />
+
+        <link rel='stylesheet' href='https://unpkg.com/maplibre-gl@4.4.1/dist/maplibre-gl.css' />
+        <script src='https://unpkg.com/maplibre-gl@4.4.1/dist/maplibre-gl.js'></script>
+
+
+        {% load static %}
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+
+        <!-- third party css -->
+        <link href="{% static 'assets/css/vendor/responsive.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/select.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/buttons.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/dataTables.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="light-style" />
+        <link href="{% static 'assets/css/app-creative-dark.min.css' %}" rel="stylesheet" type="text/css" id="dark-style" />
+
+        <style>
+            body { margin: 0; padding: 0; }
+            html, body, #map { height: 100%; }
+        </style>
+    </head>
+
+    <body>
+        <!-- Begin page -->
+
+        <style>
+            .filter-group {
+                font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+                font-weight: 600;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 1;
+                border-radius: 3px;
+                width: 120px;
+                color: #fff;
+            }
+
+            .filter-group input[type='checkbox']:first-child + label {
+                border-radius: 3px 3px 0 0;
+            }
+
+            .filter-group label:last-child {
+                border-radius: 0 0 3px 3px;
+                border: none;
+            }
+
+            .filter-group input[type='checkbox'] {
+                display: none;
+            }
+
+            .filter-group input[type='checkbox'] + label {
+                background-color: #3386c0;
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            }
+
+            .filter-group input[type='checkbox'] + label {
+                background-color: #3386c0;
+                text-transform: capitalize;
+            }
+
+            .filter-group input[type='checkbox'] + label:hover,
+            .filter-group input[type='checkbox']:checked + label {
+                background-color: #4ea0da;
+            }
+
+            .filter-group input[type='checkbox']:checked + label:before {
+                content: '✔';
+                margin-right: 5px;
+            }
+        </style>
+        <div id="map"></div>
+        <nav id="filter-group" class="filter-group"></nav>
+
+        <script>
+            const places = {
+                'type': 'FeatureCollection',
+                'features': [
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'museum'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.939799785614, 52.369201660156] // Press Museum
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'museum'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8848700523376, 52.367641448975] // Huis Marseille, Museum for Photography
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'museum'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.9016180038452, 52.369220733643] // Rembrandt House Museum
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'museum'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.9126758575439, 52.372215270996] // Amsterdam Centre for Architecture
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'museum'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8944444656372, 52.367500305176] // Hotel Pulitzer
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8944444656372, 52.372776031494] // Grand Hotel Krasnapolsky
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.9347224235535, 52.374168395996] // Lloyd Hotel
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8969559669495, 52.364738464355] // Waldorf Astoria Amsterdam
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8722224235535, 52.351387023926] // Hilton Amsterdam
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.9060001373291, 52.360000610352] // InterContinental Amstel Amsterdam
+                        }
+                    },
+                    {
+                        'type': 'Feature',
+                        'properties': {
+                            'icon': 'lodging'
+                        },
+                        'geometry': {
+                            'type': 'Point',
+                            'coordinates': [4.8977999687195, 52.376899719238] // Victoria Hotel
+                        }
+                    }
+                ]
+            };
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const layerIDs = [];
+            const filterGroup = document.getElementById('filter-group');
+            const key = urlParams.get('key') || 'YKUPUUhykPszZbTqzJ2Z';
+            const map = new maplibregl.Map({
+                container: 'map',
+                style: `https://api.maptiler.com/maps/streets/style.json?key=${key}`, // style URL
+                //center: [-77.04, 38.907],
+                //zoom: 11.15
+                center: [4.8932, 52.3730],
+                zoom: 13
+            });
+
+            map.addControl(new maplibregl.NavigationControl(), 'top-left');
+
+            map.on('load', () => {
+                // Add a GeoJSON source containing place coordinates and information.
+                map.addSource('places', {
+                    'type': 'geojson',
+                    'data': places
+                });
+
+                places.features.forEach((feature) => {
+                    const symbol = feature.properties['icon'];
+                    const layerID = `poi-${symbol}`;
+
+                    // Add a layer for this symbol type if it hasn't been added already.
+                    if (!map.getLayer(layerID)) {
+                        map.addLayer({
+                            'id': layerID,
+                            'type': 'symbol',
+                            'source': 'places',
+                            'layout': {
+                                'icon-image': `${symbol}_15`,
+                                'icon-overlap': 'always',
+                                'text-field': symbol,
+                                'text-font': [
+                                    'Open Sans Bold',
+                                    'Arial Unicode MS Bold'
+                                ],
+                                'text-size': 11,
+                                'text-transform': 'uppercase',
+                                'text-letter-spacing': 0.05,
+                                'text-offset': [0, 1.7]
+                            },
+                            'paint': {
+                                'text-color': '#202',
+                                'text-halo-color': '#fff',
+                                'text-halo-width': 1.5
+                            },
+                            'filter': ['==', 'icon', symbol]
+                        });
+
+                        // Add checkbox and label elements for the layer.
+                        const input = document.createElement('input');
+                        input.type = 'checkbox';
+                        input.id = layerID;
+                        input.checked = true;
+                        filterGroup.appendChild(input);
+
+                        const label = document.createElement('label');
+                        label.setAttribute('for', layerID);
+                        label.textContent = symbol;
+                        filterGroup.appendChild(label);
+
+                        // When the checkbox changes, update the visibility of the layer.
+                        input.addEventListener('change', (e) => {
+                            map.setLayoutProperty(
+                                layerID,
+                                'visibility',
+                                e.target.checked ? 'visible' : 'none'
+                            );
+                        });
+                    }
+                });
+
+
+            });
+        </script>
+
+        <!-- bundle -->
+        <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.min.js' %}"></script>
+    </body>
+</html>

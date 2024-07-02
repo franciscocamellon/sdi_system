@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Citizen Scientist</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="CAMELLonCASE" name="author" />
+
+        {% load static %}
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+
+        <!-- third party css -->
+        <link href="{% static 'assets/css/vendor/responsive.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/select.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/buttons.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/dataTables.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="light-style" />
+        <link href="{% static 'assets/css/app-creative-dark.min.css' %}" rel="stylesheet" type="text/css" id="dark-style" />
+
+
+    </head>
+
+    <body class="authentication-bg" data-layout-config='{"darkMode":false}'>
+
+        <div class="account-pages pt-2 pt-sm-5 pb-4 pb-sm-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xxl-4 col-lg-5">
+                        <div class="card">
+
+                            <!-- Logo -->
+                            <div class="card-header text-center bg-primary">
+                                <h3 class="text-white text-center mt-2 fw-bold">Air Quality Measurement</h3>
+                            </div>
+
+                            <div class="card-body p-4">
+
+                                <form action="#">
+
+                                    <div class="mb-3">
+                                        <label for="fullname" class="form-label">PM2.5 Measurement</label>
+                                        <input class="form-control" type="text" id="fullname" placeholder="37" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="fullname" class="form-label">Station name</label>
+                                        <input class="form-control" type="text" id="fullname" placeholder="Station name" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="emailaddress" class="form-label">Username</label>
+                                        <input class="form-control" type="text" id="emailaddress" required placeholder="Username">
+                                    </div>
+
+<!--                                    <div class="mb-3">-->
+<!--                                        <label for="password" class="form-label">Password</label>-->
+<!--                                        <div class="input-group input-group-merge">-->
+<!--                                            <input type="password" id="password" class="form-control" placeholder="Enter your password">-->
+<!--                                            <div class="input-group-text" data-password="false">-->
+<!--                                                <span class="password-eye"></span>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="checkbox-signup">
+                                            <label class="form-check-label" for="checkbox-signup">Send to validation process</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 text-center">
+                                        <button class="btn btn-primary" type="submit"> Save Measurement </button>
+                                    </div>
+
+                                </form>
+                            </div> <!-- end card-body -->
+                        </div>
+                        <!-- end card -->
+
+
+                        <!-- end row -->
+
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </div>
+        <!-- end page -->
+
+        <footer class="footer footer-alt">
+            2024 © SDI - CAMELLonCASE
+        </footer>
+
+        <!-- bundle -->
+        <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+    </body>
+</html>

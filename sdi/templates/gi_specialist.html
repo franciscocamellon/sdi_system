@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>SDI System</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+
+        <!-- third party css -->
+        <link href="{% static 'assets/css/vendor/responsive.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/select.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/buttons.bootstrap5.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/quill.core.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/quill.snow.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/vendor/jquery-jvectormap-1.2.2.css' %}" rel="stylesheet" type="text/css">
+        <!-- third party css end -->
+
+        <!-- App css -->
+        <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/css/app-creative.min.css' %}" rel="stylesheet" type="text/css" id="light-style" />
+
+
+    </head>
+
+    <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
+        <!-- Begin page -->
+        <div class="wrapper">
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="leftside-menu">
+
+                <!-- LOGO -->
+                <a href="#" class="logo text-center logo-light">
+                    <span class="logo-lg">
+                        <h3 class="text-white text-center mt-2 fw-bold">SDI - PROJECT</h3>
+                    </span>
+                </a>
+
+                <div class="h-100" id="leftside-menu-container" data-simplebar>
+
+                    <!--- Sidemenu -->
+                    <ul class="side-nav">
+
+                        <li class="side-nav-title side-nav-item">Apps</li>
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarSolution" aria-expanded="false" aria-controls="sidebarSolution" class="side-nav-link">
+                                <i class="uil-atm-card"></i>
+                                <span> Processing Services </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarSolution">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="" >Add</a>
+                                    </li>
+                                    <li>
+                                        <a href="" >List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarPartNumber" aria-expanded="false" aria-controls="sidebarPartNumber"  class="side-nav-link">
+                                <i class="uil-puzzle-piece"></i>
+                                <span> Data Services </span>
+                            <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarPartNumber">
+                                <ul class="side-nav-second-level">
+                                    <li>
+                                        <a href="" >Add</a>
+                                    </li>
+                                    <li>
+                                        <a href="" >List</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="uil-file-exclamation"></i>
+                                <span> Log </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="uil-folder-plus"></i>
+                                <span> File Manager </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-title side-nav-item">Tools</li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="uil-search-alt"></i>
+                                <span> Searcher </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="uil-exchange-alt"></i>
+                                <span> Converter </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="mdi mdi-link-variant"></i>
+                                <span> Report </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="" class="side-nav-link">
+                                <i class="mdi mdi-cloud-upload"></i>
+                                <span> Upload </span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- End Sidebar -->
+
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                    <!-- Topbar Start -->
+                    <div class="navbar-custom">
+                        <ul class="list-unstyled topbar-menu float-end mb-0">
+                            <li class="dropdown notification-list d-lg-none">
+                                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <i class="dripicons-search noti-icon"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg p-0">
+                                    <form class="p-3">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                    </form>
+                                </div>
+                            </li>
+
+                            <li class="dropdown notification-list topbar-dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <img src="{% static 'assets/images/flags/us.jpg' %}" alt="user-image" class="me-0 me-sm-1" height="12">
+                                    <span class="align-middle d-none d-sm-inline-block">English</span> <i class="mdi mdi-chevron-down d-none d-sm-inline-block align-middle"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu">
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <img src="{% static 'assets/images/flags/germany.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">German</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <img src="{% static 'assets/images/flags/italy.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Italian</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <img src="{% static 'assets/images/flags/spain.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Spanish</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <img src="{% static 'assets/images/flags/russia.jpg' %}" alt="user-image" class="me-1" height="12"> <span class="align-middle">Russian</span>
+                                    </a>
+
+                                </div>
+                            </li>
+
+                            <li class="notification-list">
+                                <a class="nav-link end-bar-toggle" href="javascript: void(0);">
+                                    <i class="dripicons-gear noti-icon"></i>
+                                </a>
+                            </li>
+
+                            <li class="dropdown notification-list">
+                                <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false"
+                                    aria-expanded="false">
+                                    <span class="account-user-avatar">
+                                        <img src="{% static 'assets/images/users/avatar-1.jpg' %}" alt="user-image" class="rounded-circle">
+                                    </span>
+                                    <span>
+                                        <span class="account-user-name">Mark Buhrer</span>
+                                        <span class="account-position">GI Specialist</span>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                    <!-- item-->
+                                    <div class=" dropdown-header noti-title">
+                                        <h6 class="text-overflow m-0">Welcome !</h6>
+                                    </div>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-circle me-1"></i>
+                                        <span>My Account</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-account-edit me-1"></i>
+                                        <span>Settings</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-lifebuoy me-1"></i>
+                                        <span>Support</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-lock-outline me-1"></i>
+                                        <span>Lock Screen</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="mdi mdi-logout me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="button-menu-mobile open-left disable-btn">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                        <div class="app-search dropdown d-none d-lg-block">
+
+                        </div>
+                    </div>
+                    <!-- end Topbar -->
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box">
+                                    <div class="page-title-right">
+                                    </div>
+                                    <h4 class="page-title">Data Analysis</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+                        <div class="row">
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Endpoint</label>
+                                <select class="form-select" id="inputGroupSelect01">
+                                <option selected>https://dbpedia.org/sparql</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div id="snow-editor" >
+                                            <p>PREFIX dbr: <'http'://dbpedia.org/resource/></p>
+                                            <p>PREFIX rdfs: <'http'://www.w3.org/2000/01/srdf-schema#></p>
+                                            <p>PREFIX geo: <'http'://www.w3.org/2003/01/geo/wgs84_pos#></p>
+                                            <p><br></p>
+                                            <p>SELECT ?museum ?museumLabel ?geometry</p>
+                                            <p>WHERE {</p>
+                                              <p>?museum a dbo:Museum ;</p>
+                                                      <p>dbo:location dbr:Amsterdam ;</p>
+                                                      <p>rdfs:label ?museumLabel ;</p>
+                                                      <p>geo:geometry ?geometry .</p>
+                                              <p>FILTER (lang(?museumLabel) = "en")</p>
+                                           <p> }</p>
+                                            <p>LIMIT 100</p>
+
+                                        </div>
+                                        <div class="col-8 mt-2">
+                                            <button type="submit" class="btn btn-info" style="width: 100px;">Run</button>
+                                            <button type="submit" class="btn btn-info" style="width: 100px;">Clear</button>
+                                            <button type="submit" class="btn btn-info" style="width: 100px;">Share</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card">
+                                    <div class="card-body" style="height: 350px;">
+                                        <ul class="nav nav-tabs mb-3">
+                                            <li class="nav-item">
+                                                <a href="#home" data-bs-toggle="tab" aria-expanded="false" class="nav-link">
+                                                    <i class="mdi mdi-home-variant d-md-none d-block"></i>
+                                                    <span class="d-none d-md-block">Data layers</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#profile" data-bs-toggle="tab" aria-expanded="true" class="nav-link active">
+                                                    <i class="mdi mdi-account-circle d-md-none d-block"></i>
+                                                    <span class="d-none d-md-block">Output</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="home">
+                                                <p>...</p>
+                                            </div>
+                                            <div class="tab-pane show active" id="profile">
+                                                <p>...</p>
+                                            </div>
+                                            <div class="tab-pane" id="settings">
+                                                <p>...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- container -->
+
+                </div>
+                <!-- content -->
+
+                <!-- Footer Start -->
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <script>document.write(new Date().getFullYear())</script> © RFP - CAMELLonCASE
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-end footer-links d-none d-md-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+        <div class="rightbar-overlay"></div>
+        <!-- /End-bar -->
+
+        <!-- bundle -->
+        <script src="{% static 'assets/js/vendor.min.js' %}"></script>
+        <script src="{% static 'assets/js/app.min.js' %}"></script>
+
+
+        <!-- third party js -->
+        <script src="{% static 'assets/js/vendor/responsive.bootstrap5.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/buttons.bootstrap5.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/buttons.flash.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/buttons.print.min.js' %}"></script>
+        <script src="{% static 'assets/js/vendor/jquery-jvectormap-europe-mill-en.js' %}"></script>
+        <script src="{% static 'assets/js/pages/demo.vector-maps.js' %}"></script>
+        <!-- third party js ends -->
+
+        <!-- quill js -->
+        <script src="{% static 'assets/js/vendor/quill.min.js' %}"></script>
+        <!-- quill Init js-->
+        <script src="{% static 'assets/js/pages/demo.quilljs.js' %}"></script>
+
+        <!-- demo app -->
+        <script src="{% static 'assets/js/pages/demo.dashboard.js' %}"></script>
+        <script src="{% static 'assets/js/pages/demo.datatable-init.js' %}"></script>
+        <script src="{% static 'assets/js/pages/demo.customers.js' %}"></script>
+
+        <!-- end demo js-->
+
+
+    </body>
+</html>
